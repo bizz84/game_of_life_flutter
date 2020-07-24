@@ -188,6 +188,51 @@ class Patterns {
     ];
     return Grid(xCount: 11, yCount: 18, alivePoints: alive);
   }
+
+  static Grid gosperGliderGun() {
+    final alive = [
+      Point(1, 5),
+      Point(2, 5),
+      Point(1, 6),
+      Point(2, 6),
+      //
+      Point(11, 5),
+      Point(11, 6),
+      Point(11, 7),
+      Point(12, 4),
+      Point(12, 8),
+      Point(13, 3),
+      Point(13, 9),
+      Point(14, 3),
+      Point(14, 9),
+      Point(15, 6),
+      Point(16, 4),
+      Point(16, 8),
+      Point(17, 5),
+      Point(17, 6),
+      Point(17, 7),
+      Point(18, 6),
+      //
+      Point(21, 3),
+      Point(21, 4),
+      Point(21, 5),
+      Point(22, 3),
+      Point(22, 4),
+      Point(22, 5),
+      Point(23, 2),
+      Point(23, 6),
+      Point(25, 1),
+      Point(25, 2),
+      Point(25, 6),
+      Point(25, 7),
+      //
+      Point(35, 3),
+      Point(35, 4),
+      Point(36, 3),
+      Point(36, 4),
+    ];
+    return Grid(xCount: 38, yCount: 12, alivePoints: alive);
+  }
 }
 
 //     final startPoints = [Point(0, 1), Point(1, 1), Point(2, 1)];

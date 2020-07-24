@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:game_of_life_flutter/game_of_life.dart';
@@ -16,13 +17,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Timer _timer;
-  final game = Game(Patterns.pentaDecathlon());
+  final game = Game(Patterns.gosperGliderGun());
 
   @override
   void initState() {
     super.initState();
     _timer = Timer.periodic(
-      const Duration(milliseconds: 250),
+      const Duration(milliseconds: 40),
       (_) => setState(() => game.tick()),
     );
   }
