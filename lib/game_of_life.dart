@@ -92,7 +92,7 @@ class Game {
   }
 }
 
-extension GridBeacon on Grid {
+class Patterns {
   static Grid beacon() {
     final alive = [
       Point(1, 1),
@@ -104,9 +104,7 @@ extension GridBeacon on Grid {
     ];
     return Grid(xCount: 6, yCount: 6, alivePoints: alive);
   }
-}
 
-extension GridPulsar on Grid {
   static Grid pulsar() {
     final alive = [
       // top left
@@ -163,6 +161,32 @@ extension GridPulsar on Grid {
       Point(14, 12),
     ];
     return Grid(xCount: 17, yCount: 17, alivePoints: alive);
+  }
+
+  static Grid pentaDecathlon() {
+    final alive = [
+      // top
+      Point(5, 3),
+      Point(4, 4),
+      Point(5, 4),
+      Point(6, 4),
+      Point(3, 5),
+      Point(4, 5),
+      Point(5, 5),
+      Point(6, 5),
+      Point(7, 5),
+      // bottom
+      Point(3, 12),
+      Point(4, 12),
+      Point(5, 12),
+      Point(6, 12),
+      Point(7, 12),
+      Point(4, 13),
+      Point(5, 13),
+      Point(6, 13),
+      Point(5, 14),
+    ];
+    return Grid(xCount: 11, yCount: 18, alivePoints: alive);
   }
 }
 

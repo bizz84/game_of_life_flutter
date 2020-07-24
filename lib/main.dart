@@ -16,13 +16,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Timer _timer;
-  final game = Game(GridPulsar.pulsar());
+  final game = Game(Patterns.pentaDecathlon());
 
   @override
   void initState() {
     super.initState();
     _timer = Timer.periodic(
-      const Duration(milliseconds: 500),
+      const Duration(milliseconds: 250),
       (_) => setState(() => game.tick()),
     );
   }
@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
           padding: EdgeInsets.symmetric(horizontal: 40, vertical: 80),
           child: LayoutBuilder(
             builder: (_, __) => AspectRatio(
-              aspectRatio: 1.0,
+              aspectRatio: game.grid.xCount / game.grid.yCount,
               child: Container(
                 // pass double.infinity to prevent shrinking of the painter area to 0.
                 width: double.infinity,
