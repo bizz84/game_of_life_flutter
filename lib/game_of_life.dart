@@ -23,7 +23,7 @@ class Point {
   final int x;
   final int y;
 
-  operator +(other) => Point(x + other.x, y + other.y);
+  operator +(covariant Point other) => Point(x + other.x, y + other.y);
 
   @override
   int get hashCode => hashValues(x, y);
@@ -42,7 +42,10 @@ class Point {
 
 /// The grid is an endless, two-dimensional [field] of cell [State]s.
 class Grid {
-  Grid({this.xCount, this.yCount, List<Point> alivePoints = const []}) {
+  Grid(
+      {required this.xCount,
+      required this.yCount,
+      List<Point> alivePoints = const []}) {
     alivePoints.forEach((point) => field[point] = true);
   }
 
@@ -53,7 +56,7 @@ class Grid {
   int countLiveNeighbours(Point point) =>
       neighbourPoints.where((offset) => field[point + offset] == true).length;
 
-  void iterate({Function(Point) onUpdate}) {
+  void iterate({required void Function(Point) onUpdate}) {
     for (var x = 0; x < xCount; x++) {
       for (var y = 0; y < yCount; y++) {
         onUpdate(Point(x, y));

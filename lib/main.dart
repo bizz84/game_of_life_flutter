@@ -16,7 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Timer _timer;
+  late Timer _timer;
   final game = Game(Patterns.gosperGliderGun());
 
   @override
@@ -81,8 +81,9 @@ class GameOfLifePainter extends CustomPainter {
     final dx = size.width / game.grid.xCount;
     final dy = size.height / game.grid.yCount;
     // Active cells
-    for (var point in game.grid.field.keys) {
-      if (game.grid.field[point]) {
+    for (var entry in game.grid.field.entries) {
+      final point = entry.key;
+      if (entry.value) {
         final rect = Rect.fromLTWH(point.x * dx, point.y * dy, dx, dy);
         canvas.drawRect(rect, boxPaint);
       }
