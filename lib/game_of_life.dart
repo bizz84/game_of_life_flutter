@@ -42,10 +42,11 @@ class Point {
 
 /// The grid is an endless, two-dimensional [field] of cell [State]s.
 class Grid {
-  Grid(
-      {required this.xCount,
-      required this.yCount,
-      List<Point> alivePoints = const []}) {
+  Grid({
+    required this.xCount,
+    required this.yCount,
+    List<Point> alivePoints = const [],
+  }) {
     alivePoints.forEach((point) => field[point] = true);
   }
 
@@ -236,6 +237,11 @@ class Patterns {
     ];
     return Grid(xCount: 38, yCount: 12, alivePoints: alive);
   }
-}
 
-//     final startPoints = [Point(0, 1), Point(1, 1), Point(2, 1)];
+  static List<Grid> allGrids = [
+    beacon(),
+    pulsar(),
+    pentaDecathlon(),
+    gosperGliderGun(),
+  ];
+}
