@@ -4,11 +4,11 @@ import 'package:flutter/scheduler.dart';
 import 'game_of_life.dart';
 
 class GameOfLifeRenderer extends StatefulWidget {
-  const GameOfLifeRenderer({Key? key, required this.game}) : super(key: key);
+  const GameOfLifeRenderer({super.key, required this.game});
   final Game game;
 
   @override
-  _GameOfLifeRendererState createState() => _GameOfLifeRendererState();
+  State<GameOfLifeRenderer> createState() => _GameOfLifeRendererState();
 }
 
 class _GameOfLifeRendererState extends State<GameOfLifeRenderer>
@@ -21,7 +21,7 @@ class _GameOfLifeRendererState extends State<GameOfLifeRenderer>
   @override
   void initState() {
     super.initState();
-    _ticker = this.createTicker((elapsed) {
+    _ticker = createTicker((elapsed) {
       _tickCount++;
       if (_tickCount % 5 == 0) {
         setState(() => game.tick());
@@ -40,7 +40,7 @@ class _GameOfLifeRendererState extends State<GameOfLifeRenderer>
   Widget build(BuildContext context) {
     return AspectRatio(
       aspectRatio: game.grid.xCount / game.grid.yCount,
-      child: Container(
+      child: SizedBox(
         // pass double.infinity to prevent shrinking of the painter area to 0.
         width: double.infinity,
         height: double.infinity,

@@ -4,24 +4,28 @@ import 'package:game_of_life_flutter/game_of_life_renderer.dart';
 import 'game_of_life.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+    const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
     return MaterialApp(
       theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
       debugShowCheckedModeBanner: false,
-      home: GameSelector(),
+      home: const GameSelector(),
     );
   }
 }
 
 class GameSelector extends StatefulWidget {
+  const GameSelector({super.key});
+
   @override
-  _GameSelectorState createState() => _GameSelectorState();
+  State<GameSelector> createState() => _GameSelectorState();
 }
 
 class _GameSelectorState extends State<GameSelector> {
@@ -40,7 +44,7 @@ class _GameSelectorState extends State<GameSelector> {
       body: Container(
         color: Colors.white,
         alignment: Alignment.center,
-        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 80),
+        padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 80),
         child: GameOfLifeRenderer(
           game: Game(Patterns.allGrids[_currentGameIndex]),
         ),
@@ -50,7 +54,7 @@ class _GameSelectorState extends State<GameSelector> {
         onPressed: _nextGame,
         child: Text(
           Patterns.names[_currentGameIndex],
-          style: TextStyle(fontSize: 18),
+          style: const TextStyle(fontSize: 18),
         ),
       ),
     );
